@@ -1,71 +1,131 @@
-# sass71 README
+ # Sass71
 
-This is the README for your extension "sass71". After writing up a brief description, we recommend including the following sections.
+ Sass71 is a Visual Studio Code extension that generates a predefined Sass folder and file structure. It includes the creation of partial files with names starting with an underscore and sets up the main `main.scss` file with imports for each of these partial files.
 
-## Features
+ ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+ ### Creates the following folders in the selected directory:
 
-For example if there is an image subfolder under your extension project workspace:
+ ```
+ assets/sass/abstracts
+ assets/sass/base
+ assets/sass/components
+ assets/sass/layout
+ assets/sass/pages
+ assets/sass/themes
+ assets/sass/vendors
+ ```
 
-\!\[feature X\]\(images/feature-x.png\)
+ ### Inside each folder, it creates the corresponding partial files:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+ - **abstracts**: `_variables.scss`, `_functions.scss`, `_mixins.scss`, `_placeholders.scss`
+ - **base**: `_reset.scss`, `_typography.scss`
+ - **components**: `_buttons.scss`, `_carousel.scss`, `_cover.scss`, `_dropdown.scss`
+ - **layout**: `_navigation.scss`, `_grid.scss`, `_header.scss`, `_footer.scss`, `_sidebar.scss`, `_forms.scss`
+ - **pages**: `_home.scss`, `_contact.scss`
+ - **themes**: `_theme.scss`, `_admin.scss`
+ - **vendors**: `_bootstrap.scss`, `_jquery-ui.scss`
 
-## Requirements
+ ### Creates a `main.scss` file in `assets/sass` with the following imports:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+ ```scss
+ @import 'abstracts/variables';
+ @import 'abstracts/functions';
+ @import 'abstracts/mixins';
+ @import 'abstracts/placeholders';
 
-## Extension Settings
+ @import 'vendors/bootstrap';
+ @import 'vendors/jquery-ui';
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+ @import 'base/reset';
+ @import 'base/typography';
 
-For example:
+ @import 'layout/navigation';
+ @import 'layout/grid';
+ @import 'layout/header';
+ @import 'layout/footer';
+ @import 'layout/sidebar';
+ @import 'layout/forms';
 
-This extension contributes the following settings:
+ @import 'components/buttons';
+ @import 'components/carousel';
+ @import 'components/cover';
+ @import 'components/dropdown';
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+ @import 'pages/home';
+ @import 'pages/contact';
 
-## Known Issues
+ @import 'themes/theme';
+ @import 'themes/admin';
+ ```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+ ## Usage
 
-## Release Notes
+ 1. **Open VSCode and load the extension.**
+ 2. **Use the Command Palette** (`Ctrl+Shift+P`) and search for `Create Sass Structure`.
+ 3. **Select the folder** where you want to create the Sass structure.
 
-Users appreciate release notes as you update your extension.
+ ## Installation
 
-### 1.0.0
+ To install Sass71, follow these steps:
 
-Initial release of ...
+ 1. **Clone the repository:**
 
-### 1.0.1
+    ```bash
+    git clone https://github.com/Giovasdf/Sass71.git
+    ```
 
-Fixed issue #.
+ 2. **Navigate to the project directory:**
 
-### 1.1.0
+    ```bash
+    cd Sass71
+    ```
 
-Added features X, Y, and Z.
+ 3. **Install dependencies:**
 
----
+    ```bash
+    npm install
+    ```
 
-## Following extension guidelines
+ 4. **Compile the extension:**
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+    ```bash
+    npm run compile
+    ```
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+ 5. **Launch the extension:**
 
-## Working with Markdown
+    Press `F5` in VSCode to open a new window with the extension loaded.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+ ## Contributing
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+ Contributions are welcome! Please follow these steps to contribute:
 
-## For more information
+ 1. **Fork the repository.**
+ 2. **Create a new branch:**
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+    ```bash
+    git checkout -b feature/YourFeature
+    ```
 
-**Enjoy!**
+ 3. **Commit your changes:**
+
+    ```bash
+    git commit -m "Add your feature"
+    ```
+
+ 4. **Push to the branch:**
+
+    ```bash
+    git push origin feature/YourFeature
+    ```
+
+ 5. **Open a pull request** on GitHub.
+
+ ## License
+
+ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+ ## Contact
+
+ For any questions or suggestions, feel free to open an issue on the [GitHub repository](https://github.com/Giovasdf/Sass71.git).
